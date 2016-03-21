@@ -1,0 +1,26 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>Comments!</title> 
+   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script> 
+   <script src="javascripts/app.js"></script> 
+  </head> 
+  <body ng-app="comment" ng-controller="MainCtrl"> 
+    <form ng-submit="addComment()">
+        <input type="text" ng-model="formContent"><br>
+        <button type="submit">Add Comment</button>
+     </form> 
+      <div ng-repeat="comment in comments | orderBy: '-upvotes'">
+       <span ng-click="upvote(comment)">+</span>
+       <span ng-click="downvote(comment)">-</span> 
+         {{comment.title}} - upvotes: {{comment.upvotes}}
+      </div>
+
+    
+  <div  ng-controller="RevCtrl">
+    <p> Reverse text!</p>
+    <input type="text" ng-model="tt" ng-change="doReverse()" /> <br>
+    {{rev}}
+  </div>
+  </body> 
+</html>
